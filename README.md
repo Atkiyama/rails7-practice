@@ -1,3 +1,6 @@
+# このアプリについて
+https://github.com/kuroda/baukis2
+を元に作成中のrailsキャッチアップ用アプリ
 # コマンドリファレンス
 
 rspecでテスト
@@ -28,6 +31,11 @@ migration実行
 bin/rails db:migrate
 # リセットする場合はこちら
 bin/rails db:migrate:reset
+```
+
+シードデータ投入
+```bash
+bin/rails db:seed
 ```
 
 
