@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  #　この部分はmysqlコンテナを指定
+  # この部分はmysqlコンテナを指定
   host: db
   # portを指定しないとMySQL connectエラーになりdbを作成できない
   port: 3306
