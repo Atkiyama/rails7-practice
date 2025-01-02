@@ -74,5 +74,5 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
-  config.web_console.allowed_ip = [ "172.16.0.0/12" ]
+  config.web_console.allowed_ip = [ "0.0.0.0/0"]
 end
