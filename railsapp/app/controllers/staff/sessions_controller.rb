@@ -9,11 +9,12 @@ class Staff::SessionsController < Staff::Base
   end
 
   def create
+    Rails.logger.info "Logged in"
     @form = Staff::LoginForm.new(params[:staff_login_form])
     if @form.email.present?
       staff_members = StaffMember.find_by("email = ?", @form.email.downcase)
     end
-    if staff_members
+    if Staff::Authenticator.new(staff_members).authenticate(@form.password)
       session[:staff_member_id] = staff_members.id
       redirect_to :staff_root
     else
@@ -27,7 +28,7 @@ class Staff::SessionsController < Staff::Base
     # end
     session.delete(:staff_member_id)
     # flash.notice = "ログアウトしました。"
-    puts "Redirecting to: #{staff_root_path}"
+    Rails.logger.info "Logged out"
     redirect_to :staff_root
   end
 end
